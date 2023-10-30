@@ -70,7 +70,7 @@
       "members": [
         {
           "type": "PATTERN",
-          "value": "[a-zA-Z0-9!?_\\-+*]+"
+          "value": "[a-zA-Z0-9!?_\\-+*><]+"
         },
         {
           "type": "STRING",
@@ -194,15 +194,27 @@
           "value": "("
         },
         {
-          "type": "REPEAT",
+          "type": "FIELD",
+          "name": "function",
           "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "SYMBOL",
-                "name": "expression"
-              }
-            ]
+            "type": "SYMBOL",
+            "name": "expression"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "arguments",
+          "content": {
+            "type": "REPEAT",
+            "content": {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "expression"
+                }
+              ]
+            }
           }
         },
         {

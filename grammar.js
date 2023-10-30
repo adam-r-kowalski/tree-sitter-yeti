@@ -25,7 +25,7 @@ module.exports = grammar({
     float: () => /\d+\.\d+/,
 
     symbol: () => choice(
-      /[a-zA-Z0-9!?_\-+*]+/,
+      /[a-zA-Z0-9!?_\-+*><]+/,
       '/'
     ),
 
@@ -52,7 +52,8 @@ module.exports = grammar({
 
     call: $ => seq(
       '(',
-      repeat(seq($.expression)),
+      field('function', $.expression),
+      field('arguments', repeat(seq($.expression))),
       ')'
     ),
 
