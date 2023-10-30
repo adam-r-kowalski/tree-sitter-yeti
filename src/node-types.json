@@ -15,6 +15,11 @@
     }
   },
   {
+    "type": "comment",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "expression",
     "named": true,
     "fields": {},
@@ -24,6 +29,10 @@
       "types": [
         {
           "type": "array",
+          "named": true
+        },
+        {
+          "type": "comment",
           "named": true
         },
         {
@@ -99,6 +108,10 @@
   },
   {
     "type": "/",
+    "named": false
+  },
+  {
+    "type": ";",
     "named": false
   },
   {

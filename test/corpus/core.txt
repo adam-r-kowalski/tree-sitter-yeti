@@ -116,3 +116,41 @@ Array
       (expression
         (integer)))))
 
+============================================
+Array with comma
+============================================
+
+[1, 2, 3]
+
+---
+
+(source_file
+  (expression
+    (array
+      (expression
+        (integer))
+      (expression
+        (integer))
+      (expression
+        (integer)))))
+
+============================================
+Comment at end of line
+============================================
+
+[1, 2, 3] ; here is a comment
+
+---
+
+(source_file
+  (expression
+    (array
+      (expression
+        (integer))
+      (expression
+        (integer))
+      (expression
+        (integer))))
+  (expression
+    (comment)))
+

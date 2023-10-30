@@ -1,7 +1,7 @@
 module.exports = grammar({
   name: 'yeti',
 
-  extras: $ => [/\s/],
+  extras: $ => [/\s/, ','],
 
   rules: {
     source_file: $ => repeat($.expression),
@@ -14,6 +14,7 @@ module.exports = grammar({
       $.string,
       $.ratio,
       $.array,
+      $.comment,
     ),
 
     integer: () => /\d+/,
@@ -39,5 +40,7 @@ module.exports = grammar({
     ratio: $ => prec(9, seq($.integer, '/', $.integer)),
 
     array: $ => seq('[', repeat(seq($.expression)), ']'),
+
+    comment: $ => seq(';', /.*/),
   }
 });
