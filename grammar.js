@@ -25,11 +25,11 @@ module.exports = grammar({
     float: () => /\d+\.\d+/,
 
     symbol: () => choice(
-      /[a-zA-Z0-9!?_\-+*><]+/,
+      /[a-zA-Z0-9!?_\-+*><=]+/,
       '/'
     ),
 
-    keyword: () => /:[a-zA-Z0-9!?_\-+*]+/,
+    keyword: () => /:[a-zA-Z0-9!?_\-+*.=]+/,
 
     string: $ => seq(
       '"',

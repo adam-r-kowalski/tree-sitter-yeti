@@ -9,3 +9,5 @@
 (comment) @comment
 
 (keyword) @keyword
+
+(call function: (expression (symbol)) @function.call)

@@ -70,7 +70,7 @@
       "members": [
         {
           "type": "PATTERN",
-          "value": "[a-zA-Z0-9!?_\\-+*><]+"
+          "value": "[a-zA-Z0-9!?_\\-+*><=]+"
         },
         {
           "type": "STRING",
@@ -80,7 +80,7 @@
     },
     "keyword": {
       "type": "PATTERN",
-      "value": ":[a-zA-Z0-9!?_\\-+*]+"
+      "value": ":[a-zA-Z0-9!?_\\-+*.=]+"
     },
     "string": {
       "type": "SEQ",
