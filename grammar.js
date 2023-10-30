@@ -1,6 +1,8 @@
 module.exports = grammar({
   name: 'yeti',
 
+  extras: $ => [/\s/],
+
   rules: {
     source_file: $ => repeat($.expression),
 
@@ -11,15 +13,19 @@ module.exports = grammar({
       $.keyword,
       $.string,
       $.ratio,
+      $.array,
     ),
 
     integer: () => /\d+/,
 
     float: () => /\d+\.\d+/,
 
-    symbol: () => /(?:\/|[^\/\s][^\/]*[^\/\s]|[a-zA-Z0-9!?_\-+*]+)/,
+    symbol: () => choice(
+      /[a-zA-Z0-9!?_\-+*]+/,
+      '/'
+    ),
 
-    keyword: () => /:[a-zA-Z0-9!?_\-+/*]+/,
+    keyword: () => /:[a-zA-Z0-9!?_\-+*]+/,
 
     string: $ => seq(
       '"',
@@ -30,6 +36,8 @@ module.exports = grammar({
       '"'
     ),
 
-    ratio: $ => seq($.integer, '/', $.integer),
+    ratio: $ => prec(9, seq($.integer, '/', $.integer)),
+
+    array: $ => seq('[', repeat(seq($.expression)), ']'),
   }
 });
