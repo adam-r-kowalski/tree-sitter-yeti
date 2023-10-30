@@ -154,3 +154,64 @@ Comment at end of line
   (expression
     (comment)))
 
+
+============================================
+Map
+============================================
+
+{:a 1 :b 2}
+
+---
+
+(source_file
+  (expression
+    (map
+      (expression
+        (keyword))
+      (expression
+        (integer))
+      (expression
+        (keyword))
+      (expression
+        (integer)))))
+
+
+============================================
+Call
+============================================
+
+(+ 1 2)
+
+---
+
+(source_file
+  (expression
+    (call
+      (expression
+        (symbol))
+      (expression
+        (integer))
+      (expression
+        (integer)))))
+
+
+============================================
+Quote
+============================================
+
+'(+ 1 2)
+
+---
+
+(source_file
+  (expression
+    (quote
+      (expression
+        (call
+          (expression
+            (symbol))
+          (expression
+            (integer))
+          (expression
+            (integer)))))))
+

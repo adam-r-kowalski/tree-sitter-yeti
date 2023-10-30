@@ -14,6 +14,9 @@ module.exports = grammar({
       $.string,
       $.ratio,
       $.array,
+      $.map,
+      $.call,
+      $.quote,
       $.comment,
     ),
 
@@ -40,6 +43,20 @@ module.exports = grammar({
     ratio: $ => prec(9, seq($.integer, '/', $.integer)),
 
     array: $ => seq('[', repeat(seq($.expression)), ']'),
+
+    map: $ => seq(
+      '{',
+      repeat(seq($.expression, $.expression)),
+      '}'
+    ),
+
+    call: $ => seq(
+      '(',
+      repeat(seq($.expression)),
+      ')'
+    ),
+
+    quote: $ => seq("'", $.expression),
 
     comment: $ => seq(';', /.*/),
   }
